@@ -74,6 +74,12 @@ describe('Quantity Measurement Test Cases', () => {
     it('given values 1 yard and 3 feet when equal should return true', () => {
         var valuesInYard = quantityMeasurement.convert('YARD', 1)
         var valuesInInFeet = quantityMeasurement.convert('FEET', 3)
-        assert.equal(valuesInYard,valuesInInFeet)
+        assert.equal(valuesInYard, valuesInInFeet)
+    })
+
+    it('given values 2 inch and 5 cm when equal should return true', () => {
+        var valuesInInch = quantityMeasurement.convert('INCH', 2)
+        var valuesInCm = quantityMeasurement.convert('CM', 5)
+        assert.equal(Math.round(valuesInInch), Math.round(valuesInCm))
     })
 })
