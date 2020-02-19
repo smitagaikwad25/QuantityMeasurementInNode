@@ -13,9 +13,24 @@ describe('Quantity Measurement Test Cases', () => {
         assert.typeOf(feet1, 'number')
     })
 
-    it('given nul value in feet should return false', () => {
+    it('given null value in feet should return false', () => {
         var feet1 = quantityMeasurement.convert('FEET', null)
         assert.isFalse(feet1)
     })
 
+    it('given values in Inch should return true', () => {
+        var valuesInInch = quantityMeasurement.convert('INCH', 0)
+        var valuesInInch1 = quantityMeasurement.convert('INCH', 0)
+        assert.equal(valuesInInch,valuesInInch1)
+    })
+
+    it('given values in Inch should return typeOf', () => {
+        var valuesInInch = quantityMeasurement.convert('INCH', 0)
+        assert.typeOf(valuesInInch,'number')
+    })
+
+    it('given null values in Inch should return false', () => {
+        var valuesInInch = quantityMeasurement.convert('INCH', null)
+        assert.isFalse(valuesInInch)
+    })
 })
