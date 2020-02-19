@@ -9,7 +9,13 @@ describe('Quantity Measurement Test Cases', () => {
     })
 
     it('given value in feet should return typeOf', () => {
-        var feet1 = quantityMeasurement.convert('FEET', 0)
+        var feet1 = quantityMeasurement.convert('FEET', 1)
         assert.typeOf(feet1, 'number')
     })
+
+    it('given nul value in feet should return false', () => {
+        var feet1 = quantityMeasurement.convert('FEET', null)
+        assert.isFalse(feet1)
+    })
+
 })
