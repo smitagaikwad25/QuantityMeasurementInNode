@@ -123,8 +123,8 @@ describe('Quantity Measurement Test Cases for volum', () => {
     })
 
     it('given 1 litre and 1000 ml should return true', () => {
-        var convertedValue = quantityMeasurement.convert('LITRE',1)
-        var convertedValue1 = quantityMeasurement.convert('ML',1000)
+        var convertedValue = quantityMeasurement.convert('LITRE', 1)
+        var convertedValue1 = quantityMeasurement.convert('ML', 1000)
         assert.equal(convertedValue, convertedValue1)
     })
 
@@ -149,13 +149,13 @@ describe('Quantity Measurement Test Cases for weight', () => {
 
     it('given 1 kg and 1000 grams should return true', () => {
         var convertedValue = quantityMeasurement.convert('KG', 1)
-        var convertedValue1 = quantityMeasurement.convert('GRAMS',1000)
+        var convertedValue1 = quantityMeasurement.convert('GRAMS', 1000)
         assert.equal(convertedValue, convertedValue1)
     })
 
     it('given 1 tonne and 1000 kgs should return true', () => {
         var convertedValue = quantityMeasurement.convert('TONNE', 1)
-        var convertedValue1 = quantityMeasurement.convert('KG',1000)
+        var convertedValue1 = quantityMeasurement.convert('KG', 1000)
         assert.equal(convertedValue, convertedValue1)
     })
 
@@ -163,7 +163,18 @@ describe('Quantity Measurement Test Cases for weight', () => {
         var convertedValue = quantityMeasurement.convert('TONNE', 1)
         var convertedValue1 = quantityMeasurement.convert('GRAMS', 1000)
         var ValueInKg = quantityMeasurement.addition(convertedValue, convertedValue1)
-        assert.equal(1001,ValueInKg)
+        assert.equal(1001, ValueInKg)
     })
+
+})
+
+describe('Quantity Measurement Test Cases for temperature', () => {
+
+    it('given 212 f and 100 c should return true', () => {
+        var convertedValue = quantityMeasurement.convert('FAHRENHEIT', 212)
+        var convertedValue1 = quantityMeasurement.convert('CELCIUS', 100)
+        assert.equal(convertedValue, convertedValue1)
+    })
+
 
 })
