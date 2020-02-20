@@ -7,9 +7,14 @@ module.exports = {
         if (value == null) return false;
         for (var i = 0; i < keys.length; i++) {
             if (keys[i] == unitType) {
-                return value * measurement.MEASUREMENT[keys[i]];
+                var convertedValue = value * measurement.MEASUREMENT[keys[i]];
+                return convertedValue;
             }
         }
+    },
+
+    addition(firstValue, SecondValue) {
+        return firstValue + SecondValue;
     }
 }
 
