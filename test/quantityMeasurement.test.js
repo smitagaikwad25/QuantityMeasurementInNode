@@ -171,10 +171,8 @@ describe('Quantity Measurement Test Cases for weight', () => {
 describe('Quantity Measurement Test Cases for temperature', () => {
 
     it('given 212 f and 100 c should return true', () => {
-        var convertedValue = quantityMeasurement.convert('FAHRENHEIT', 212)
-        var convertedValue1 = quantityMeasurement.convert('CELCIUS', 100)
-        assert.equal(convertedValue, convertedValue1)
+        var convertedValue = quantityMeasurement.checkForTempInFahrenheit('FAHRENHEIT', 212)
+        console.log(convertedValue)
+        assert.equal(100, convertedValue)
     })
-
-
 })
