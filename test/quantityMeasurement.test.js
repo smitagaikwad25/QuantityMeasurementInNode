@@ -78,8 +78,37 @@ describe('Quantity Measurement Test Cases', () => {
     })
 
     it('given values 2 inch and 5 cm when equal should return true', () => {
-        var valuesInInch = quantityMeasurement.convert('INCH', 2)
-        var valuesInCm = quantityMeasurement.convert('CM', 5)
-        assert.equal(Math.round(valuesInInch), Math.round(valuesInCm))
+        var valuesInInch = Math.round(quantityMeasurement.convert('INCH', 2))
+        var valuesInCm = Math.round(quantityMeasurement.convert('CM', 5))
+        assert.equal(valuesInInch, valuesInCm)
     })
+
+    it('given 2 Inch and 2 Inch should return addion of it', () => {
+        var valuesInInch = quantityMeasurement.convert('INCH', 2)
+        var valuesInInch1 = quantityMeasurement.convert('INCH', 2)
+        var finalAdditionValue = quantityMeasurement.addition(valuesInInch, valuesInInch1)
+        assert.equal(4, finalAdditionValue)
+    })
+
+    it('given 1 feet and 2 Inch should return addion of it', () => {
+        var convertedValue = quantityMeasurement.convert('FEET', 1)
+        var convertedValue1 = quantityMeasurement.convert('INCH', 2)
+        var finalAdditionValue = quantityMeasurement.addition(convertedValue, convertedValue1)
+        assert.equal(14, finalAdditionValue)
+    })
+
+    it('given 1 feet and 1 feet should return addion of it', () => {
+        var convertedValue = quantityMeasurement.convert('FEET', 1)
+        var convertedValue1 = quantityMeasurement.convert('FEET', 1)
+        var finalAdditionValue = quantityMeasurement.addition(convertedValue, convertedValue1)
+        assert.equal(24, finalAdditionValue)
+    })
+
+    it('given 2 inch and 2.5 cm should return addion of it', () => {
+        var convertedValue = quantityMeasurement.convert('INCH', 2)
+        var convertedValue1 = quantityMeasurement.convert('CM', 2.5)
+        var finalAdditionValue = Math.round(quantityMeasurement.addition(convertedValue, convertedValue1))
+        assert.equal(3, finalAdditionValue)
+    })
+
 })
