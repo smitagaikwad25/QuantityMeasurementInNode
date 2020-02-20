@@ -83,61 +83,87 @@ describe('Quantity Measurement Test Cases for length', () => {
         assert.equal(valuesInInch, valuesInCm)
     })
 
-    it('given 2 Inch and 2 Inch should return addion of it', () => {
+    it('given 2 Inch and 2 Inch should return addion of it in Inch', () => {
         var valuesInInch = quantityMeasurement.convert('INCH', 2)
         var valuesInInch1 = quantityMeasurement.convert('INCH', 2)
-        var finalAdditionValue = quantityMeasurement.addition(valuesInInch, valuesInInch1)
-        assert.equal(4, finalAdditionValue)
+        var finalAdditionValueInInch = quantityMeasurement.addition(valuesInInch, valuesInInch1)
+        assert.equal(4, finalAdditionValueInInch)
     })
 
-    it('given 1 feet and 2 Inch should return addion of it', () => {
+    it('given 1 feet and 2 Inch should return addion of it in Inch', () => {
         var convertedValue = quantityMeasurement.convert('FEET', 1)
         var convertedValue1 = quantityMeasurement.convert('INCH', 2)
-        var finalAdditionValue = quantityMeasurement.addition(convertedValue, convertedValue1)
-        assert.equal(14, finalAdditionValue)
+        var finalAdditionValueInInch = quantityMeasurement.addition(convertedValue, convertedValue1)
+        assert.equal(14, finalAdditionValueInInch)
     })
 
-    it('given 1 feet and 1 feet should return addion of it', () => {
+    it('given 1 feet and 1 feet should return addion of it in Inch', () => {
         var convertedValue = quantityMeasurement.convert('FEET', 1)
         var convertedValue1 = quantityMeasurement.convert('FEET', 1)
-        var finalAdditionValue = quantityMeasurement.addition(convertedValue, convertedValue1)
-        assert.equal(24, finalAdditionValue)
+        var finalAdditionValueInInch = quantityMeasurement.addition(convertedValue, convertedValue1)
+        assert.equal(24, finalAdditionValueInInch)
     })
 
-    it('given 2 inch and 2.5 cm should return addion of it', () => {
+    it('given 2 inch and 2.5 cm should return addion of it in Inch', () => {
         var convertedValue = quantityMeasurement.convert('INCH', 2)
         var convertedValue1 = quantityMeasurement.convert('CM', 2.5)
-        var finalAdditionValue = Math.round(quantityMeasurement.addition(convertedValue, convertedValue1))
-        assert.equal(3, finalAdditionValue)
+        var finalAdditionValueInInch = Math.round(quantityMeasurement.addition(convertedValue, convertedValue1))
+        assert.equal(3, finalAdditionValueInInch)
     })
 
 })
 
+
 describe('Quantity Measurement Test Cases for volum', () => {
 
-    it('given 1 gallon and 3.78 litter should return addion of it', () => {
+    it('given 1 gallon and 3.78 litter should return true', () => {
         var convertedValue = quantityMeasurement.convert('GALLON', 1)
         var convertedValue1 = quantityMeasurement.convert('LITRE', 3.78)
         assert.equal(convertedValue1, convertedValue)
     })
 
-    it('given 1 litre and 1000 ml should return addion of it', () => {
+    it('given 1 litre and 1000 ml should return true', () => {
         var convertedValue = quantityMeasurement.convert('LITRE',1)
         var convertedValue1 = quantityMeasurement.convert('ML',1000)
         assert.equal(convertedValue, convertedValue1)
     })
 
-    it('given 1 gallon and 3.78 litre should return addion of it', () => {
+    it('given 1 gallon and 3.78 litre should return addion of it in litre', () => {
         var convertedValue = quantityMeasurement.convert('GALLON', 1)
         var convertedValue1 = quantityMeasurement.convert('LITRE', 3.78)
-        var finalAdditionValue = quantityMeasurement.addition(convertedValue, convertedValue1)
-        assert.equal(7.56, finalAdditionValue)
+        var finalAdditionValueInLitre = quantityMeasurement.addition(convertedValue, convertedValue1)
+        assert.equal(7.56, finalAdditionValueInLitre)
     })
 
-    it('given 1 litre and 1000 ml should return addion of it', () => {
+    it('given 1 litre and 1000 ml should return addion of it in litre', () => {
         var convertedValue = quantityMeasurement.convert('LITRE', 1)
         var convertedValue1 = quantityMeasurement.convert('ML', 1000)
-        var finalAdditionValue = quantityMeasurement.addition(convertedValue, convertedValue1)
-        assert.equal(2, finalAdditionValue)
+        var finalAdditionValueInLitre = quantityMeasurement.addition(convertedValue, convertedValue1)
+        assert.equal(2, finalAdditionValueInLitre)
     })
+
+})
+
+
+describe('Quantity Measurement Test Cases for weight', () => {
+
+    it('given 1 kg and 1000 grams should return true', () => {
+        var convertedValue = quantityMeasurement.convert('KG', 1)
+        var convertedValue1 = quantityMeasurement.convert('GRAMS',1000)
+        assert.equal(convertedValue, convertedValue1)
+    })
+
+    it('given 1 tonne and 1000 kgs should return true', () => {
+        var convertedValue = quantityMeasurement.convert('TONNE', 1)
+        var convertedValue1 = quantityMeasurement.convert('KG',1000)
+        assert.equal(convertedValue, convertedValue1)
+    })
+
+    it('given 1 tonne and 1000 grams should return addion of it in kg', () => {
+        var convertedValue = quantityMeasurement.convert('TONNE', 1)
+        var convertedValue1 = quantityMeasurement.convert('GRAMS', 1000)
+        var ValueInKg = quantityMeasurement.addition(convertedValue, convertedValue1)
+        assert.equal(1001,ValueInKg)
+    })
+
 })
