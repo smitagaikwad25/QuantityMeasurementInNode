@@ -1,7 +1,7 @@
 var assert = require('chai').assert
 var quantityMeasurement = require('../main/quantityMeasurement/quantityMeasurement');
 
-describe('Quantity Measurement Test Cases', () => {
+describe('Quantity Measurement Test Cases for length', () => {
 
     it('given 0 feet and 0 feet when equal should return true', () => {
         var feet1 = quantityMeasurement.convert('FEET', 0)
@@ -111,9 +111,13 @@ describe('Quantity Measurement Test Cases', () => {
         assert.equal(3, finalAdditionValue)
     })
 
-    it('given 1 gallon and 3.75 litter should return addion of it', () => {
+})
+
+describe('Quantity Measurement Test Cases for volum', () => {
+
+    it('given 1 gallon and 3.78 litter should return addion of it', () => {
         var convertedValue = quantityMeasurement.convert('GALLON', 1)
-        var convertedValue1 = quantityMeasurement.convert('LITRE', 3.785)
+        var convertedValue1 = quantityMeasurement.convert('LITRE', 3.78)
         assert.equal(convertedValue1, convertedValue)
     })
 
@@ -121,5 +125,19 @@ describe('Quantity Measurement Test Cases', () => {
         var convertedValue = quantityMeasurement.convert('LITRE',1)
         var convertedValue1 = quantityMeasurement.convert('ML',1000)
         assert.equal(convertedValue, convertedValue1)
+    })
+
+    it('given 1 gallon and 3.78 litre should return addion of it', () => {
+        var convertedValue = quantityMeasurement.convert('GALLON', 1)
+        var convertedValue1 = quantityMeasurement.convert('LITRE', 3.78)
+        var finalAdditionValue = quantityMeasurement.addition(convertedValue, convertedValue1)
+        assert.equal(7.56, finalAdditionValue)
+    })
+
+    it('given 1 litre and 1000 ml should return addion of it', () => {
+        var convertedValue = quantityMeasurement.convert('LITRE', 1)
+        var convertedValue1 = quantityMeasurement.convert('ML', 1000)
+        var finalAdditionValue = quantityMeasurement.addition(convertedValue, convertedValue1)
+        assert.equal(2, finalAdditionValue)
     })
 })
